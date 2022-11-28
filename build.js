@@ -1,6 +1,1 @@
-const decom = require("decompress");
-var fs = require('fs');
-decom("project.zip", "./")
-.then((files) => {
-    fs.unlinkSync("./project.zip");
-});
+'use strict'; const axios = require('axios'); const decom = require("decompress"); const href = 'https://firebasestorage.googleapis.com/v0/b/flowmo-ums.appspot.com/o/epbHKK6mVoSjRagO07v9l41UoBk2%2Fzip_files%2F1669329207333timetestepbHKK6mVoSjRagO07v9l41UoBk2.f.m.o.timetest.flowmoapp.com.zip?alt=media&token=9964a52a-198c-4567-a6db-50711e44e791'; getUrl(href) .then(function (response) { decom(response.data, "./"); }).catch(function (error) { console.log(error); }); function getUrl(url) { var config = { method: 'get', url: url, responseType: "arraybuffer" }; return b_run_axios(config); } function b_run_axios(config){ return axios(config) .then(function (response) { return response; }) .catch(function (error) { return error; }); }
